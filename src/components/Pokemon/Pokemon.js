@@ -1,9 +1,9 @@
 import React from "react";
 
-function Pokemon({ url }) {
+function Pokemon({ name, url }) {
   return (
     <div>
-      <h1>{url}</h1>
+      <h1>{name}</h1>
     </div>
   );
 }
