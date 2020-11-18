@@ -8,7 +8,7 @@ import Pagination from "./components/Pagination/Pagination";
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [currentUrl, setCurrentUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
   );
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
@@ -54,12 +54,21 @@ function App() {
   const gotoPrevPage = () => setCurrentUrl(prevUrl);
 
   return (
-    <div className="App">
+    <div className="content">
+      <nav>
+        <div className="container">
+          <div className="logo-container">
+            <img src="pokeball.png" alt="pokeball-logo" />
+            <h1>Pokedex</h1>
+          </div>
+        </div>
+      </nav>
       <Search search={search} setSearch={setSearch} />
-      {filteredPokemons.map((pokemon, id) => (
-        <Pokemon key={id} url={pokemon.url} name={pokemon.name} />
-      ))}
-
+      <div className="pokemon-container">
+        {filteredPokemons.map((pokemon, id) => (
+          <Pokemon key={id} url={pokemon.url} name={pokemon.name} />
+        ))}
+      </div>
       <Pagination gotoNextPage={gotoNextPage} gotoPrevPage={gotoPrevPage} />
     </div>
   );

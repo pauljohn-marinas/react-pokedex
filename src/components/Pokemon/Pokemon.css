@@ -1,0 +1,16 @@
+.pokemon-card {
+  border-radius: 25px;
+  background: #e8e8e8;
+  box-shadow: 10px 10px 20px #aeaeae, -10px -10px 20px #ffffff;
+  height: 300px;
+  width: 250px;
+  margin: 15px 15px;
+}
+
+.card-header {
+  width: 100%;
+}
+
+.card-header img {
+  object-fit: cover;
+}
