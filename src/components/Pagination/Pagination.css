@@ -1,0 +1,38 @@
+.pagination {
+  width: 100%;
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  /* border-radius: 25px; */
+  background: #e8e8e8;
+  box-shadow: 7px 7px 7px #aeaeae, -7px -7px 7px #ffffff;
+  margin: 0 10px;
+  width: 150px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #001d93;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: inset 7px 7px 7px #bababa, inset -7px -7px 7px #ffffff;
+}
+
+.btn img {
+  width: 30px;
+}
+
+.ml {
+  margin-left: 10px;
+}
+.mr {
+  margin-right: 10px;
+}

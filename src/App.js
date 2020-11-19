@@ -50,7 +50,10 @@ function App() {
       .catch((err) => console.log(err));
   }, [currentUrl, search, pokemons]);
 
-  const gotoNextPage = () => setCurrentUrl(nextUrl);
+  const gotoNextPage = () => {
+    console.log("test");
+    setCurrentUrl(nextUrl);
+  };
   const gotoPrevPage = () => setCurrentUrl(prevUrl);
 
   return (
@@ -63,13 +66,22 @@ function App() {
           </div>
         </div>
       </nav>
-      <Search search={search} setSearch={setSearch} />
+      <div className="container">
+        <Search search={search} setSearch={setSearch} />
+      </div>
+
       <div className="pokemon-container">
         {filteredPokemons.map((pokemon, id) => (
           <Pokemon key={id} url={pokemon.url} name={pokemon.name} />
         ))}
       </div>
-      <Pagination gotoNextPage={gotoNextPage} gotoPrevPage={gotoPrevPage} />
+      <div className="container">
+        <Pagination gotoNextPage={gotoNextPage} gotoPrevPage={gotoPrevPage} />
+      </div>
+
+      <footer>
+        <div className="container"></div>
+      </footer>
     </div>
   );
 }
