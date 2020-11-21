@@ -8,7 +8,12 @@ function Search({ search, setSearch }) {
   return (
     <div className="search">
       <img src="search-solid.svg" alt="" />
-      <input type="text" value={search} onChange={handleSearch} />
+      <input
+        type="text"
+        value={search}
+        onChange={handleSearch}
+        placeholder="Search Name..."
+      />
     </div>
   );
 }

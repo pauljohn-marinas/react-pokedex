@@ -4,13 +4,14 @@ import axios from "axios";
 import Pokemon from "./components/Pokemon/Pokemon";
 import Search from "./components/Search/Search";
 import Pagination from "./components/Pagination/Pagination";
+import Modal from "./components/Modal/Modal";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [currentUrl, setCurrentUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=52"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=32"
   );
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
@@ -22,6 +23,7 @@ function App() {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   const handleModal = (e) => {
     setShowModal(!showModal);
+    setPokemonInfo([]);
     if (!showModal) {
       setDataAttribute(
         e.target.closest(".pokemon-card").attributes.getNamedItem("data-key")
@@ -48,6 +50,7 @@ function App() {
             weight: res[0].data.weight,
             height: res[0].data.height,
             language: res[1].data.names[0].name,
+            description: res[1].data.flavor_text_entries[0].flavor_text,
           });
         });
     }
@@ -104,17 +107,7 @@ function App() {
         className={`modal-overlay ${showModal ? "show" : ""}`}
         onClick={handleModal}
       >
-        <div className="modal">
-          <div className="modal-header">
-            <img src="times-solid.svg" alt="" />
-          </div>
-          <div className="modal-body">
-            <div className="image-container">
-              <img src={pokemonInfo.image} alt="" />
-            </div>
-            <div className="info-container">{pokemonInfo.language}</div>
-          </div>
-        </div>
+        <Modal pokemonInfo={pokemonInfo} />
       </div>
       <nav>
         <div className="container">

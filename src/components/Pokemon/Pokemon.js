@@ -7,7 +7,7 @@ function Pokemon({ url, handleModal }) {
   const [pokemonDetails, setPokemonDetails] = useState([]);
   const pokemonIndex = url.split("/")[6];
 
-  var pokemonNumber = "" + pokemonIndex;
+  let pokemonNumber = "" + pokemonIndex;
   while (pokemonNumber.length < 3) {
     pokemonNumber = "0" + pokemonNumber;
   }
