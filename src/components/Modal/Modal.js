@@ -45,7 +45,7 @@ function Modal({ pokemonInfo }) {
                       key={index}
                     />
                   ))
-                : "Loading"}
+                : ""}
             </div>
           </div>
           <div className="pokemon-stats">
@@ -60,7 +60,7 @@ function Modal({ pokemonInfo }) {
                             className={`progress-bar ${
                               pokemonInfo.types
                                 ? pokemonInfo.types[0].type.name
-                                : "Loading"
+                                : ""
                             }`}
                             style={{ width: `${stat.base_stat / 2}%` }}
                           ></div>
